@@ -1,0 +1,51 @@
+输出1,2,3,4,5,6,7,8,9所有6个数的组合，如123456,234567,245678注意是6个数的组合不是排列
+
+
+using System;
+using System.Collections.Generic;
+
+namespace Test1
+{
+    class Program
+    {
+       
+        
+    public static void  Main()
+    {
+        for (int i = 0; i<7; i ++)
+        {
+                 
+            for (int j = i+1; j<9; j++)
+            {
+                  
+                if (i == j) continue;
+                else
+                {
+                    for (int k = j+1; k<9; k ++)
+                    {
+                          
+                        if (k == i || k == j) continue;
+                            Console.WriteLine("{0},{1},{2}",i ,j, k);
+                            List<int> qlist = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+                            qlist.RemoveAt(k);
+                        qlist.RemoveAt(j);
+                        qlist.RemoveAt(i);
+                            Write(qlist);
+
+                    }
+                }
+            }
+        }
+            Console.ReadKey();
+    }
+        public  static void Write(List<int> qlist)
+        {
+            foreach (int item in qlist)
+            {
+                Console.Write(item);
+                
+            }
+            Console.WriteLine();
+        }
+}
+}
